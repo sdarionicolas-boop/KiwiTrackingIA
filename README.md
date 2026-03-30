@@ -166,5 +166,12 @@ GEF/PNUD ARG/19/G24 · Red ARGENA
 🐙 [GitHub](https://github.com/sdarionicolas-boop)
 
 
+<<<<<<< HEAD
 🌱 Filosofía de uso
 "Este proyecto se distribuye como código abierto bajo licencia MIT. La intención es que cada usuario lo adapte a sus propios cultivos, regiones y necesidades. No se incluyen archivos de datos pesados; todos los insumos se obtienen de fuentes abiertas (Sentinel-2, INTA, Copernicus) o se generan al ejecutar los notebooks. ¡Sentite libre de explorar, modificar y compartir!"
+=======
+# Agregar la frase al final del README.md
+echo "" >> README.md
+echo "## 🌱 Filosofía de uso" >> README.md
+"Este proyecto se distribuye como código abierto bajo licencia MIT. La intención es que cada usuario lo adapte a sus propios cultivos, regiones y necesidades. No se incluyen archivos de datos pesados; todos los insumos se obtienen de fuentes abiertas (Sentinel-2, INTA, Copernicus) o se generan al ejecutar los notebooks. ¡Sentite libre de explorar, modificar y compartir!" >> README.md
+>>>>>>> 543d45811c54a670456cacfda24599ce9d07520a
