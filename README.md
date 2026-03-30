@@ -168,5 +168,14 @@ GEF/PNUD ARG/19/G24 · Red ARGENA
 
 
 **🌱 Filosofía de uso**
+
 "Este proyecto se distribuye como código abierto bajo licencia MIT. La intención es que cada usuario lo adapte a sus propios cultivos, regiones y necesidades. No se incluyen archivos de datos pesados; todos los insumos se obtienen de fuentes abiertas (Sentinel-2, INTA, Copernicus) o se generan al ejecutar los notebooks. ¡Sentite libre de explorar, modificar y compartir!"
 
+## 📚 Cómo citar este trabajo
+
+Si utilizás KiwiTrackingIA en tu investigación, por favor citá la tesis asociada:
+
+> Sánchez Leguizamón, D. N. (2025). *Análisis de variabilidad productiva para kiwi integrando teledetección, topografía y machine learning* [Tesis de licenciatura]. Universidad Nacional Arturo Jauretche. https://github.com/sdarionicolas-boop/KiwiTrackingIA
+
+**Versión citada**: v1.0-tesis  
+**DOI**: [10.5281/zenodo.xxxxx](https://doi.org/10.5281/zenodo.xxxxx) (pendiente)
