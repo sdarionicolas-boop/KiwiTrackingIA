@@ -167,6 +167,6 @@ GEF/PNUD ARG/19/G24 · Red ARGENA
 
 
 
-🌱 Filosofía de uso
+**🌱 Filosofía de uso**
 "Este proyecto se distribuye como código abierto bajo licencia MIT. La intención es que cada usuario lo adapte a sus propios cultivos, regiones y necesidades. No se incluyen archivos de datos pesados; todos los insumos se obtienen de fuentes abiertas (Sentinel-2, INTA, Copernicus) o se generan al ejecutar los notebooks. ¡Sentite libre de explorar, modificar y compartir!"
 
