@@ -1,0 +1,44 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb~
+
+# Rasters grandes (usar Git LFS si necesario)
+*.tif
+*.tiff
+*.geotiff
+
+# Datos sensibles o privados
+*.credentials
+.env
+secrets.json
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Google Earth Engine cache
+.earthengine/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Resultados grandes (opcionales, descomentar si no se quieren versionar)
+# resultados/*.html
+# mapas_interactivos/*.html
