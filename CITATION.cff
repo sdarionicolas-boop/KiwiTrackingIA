@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "Si utilizás este software en tu investigación, por favor citá la tesis asociada."
+
+title: "KiwiTrackingIA: Sistema de análisis de variabilidad productiva para kiwi"
+version: 1.0.0
+date-released: 2025-03-30
+doi: "10.5281/zenodo.xxxxx"  # Reemplazar después de crear el DOI
+
+authors:
+  - family-names: "Sánchez Leguizamón"
+    given-names: "Darío Nicolás"
+    orcid: "https://orcid.org/0009-0000-0000-0000"  # Opcional: tu ORCID
+    affiliation: "Universidad Nacional Arturo Jauretche"
+    email: "sdarionicolas@gmail.com"
+
+repository-code: "https://github.com/sdarionicolas-boop/KiwiTrackingIA"
+license: "MIT"
+
+keywords:
+  - agriculture
+  - precision-agriculture
+  - kiwi
+  - remote-sensing
+  - sentinel-2
+  - google-earth-engine
+  - machine-learning
+  - isolation-forest
+
+abstract: |
+  KiwiTrackingIA es un sistema de análisis de variabilidad productiva para 
+  el cultivo de kiwi (Actinidia deliciosa) que integra teledetección satelital, 
+  topografía real y análisis climático con técnicas de machine learning. 
+  Fue desarrollado como parte de la tesis de licenciatura del autor en la 
+  Universidad Nacional Arturo Jauretche (UNAJ), Argentina.
