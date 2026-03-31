@@ -4,7 +4,7 @@
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://python.org)
 [![GEE](https://img.shields.io/badge/Google%20Earth%20Engine-API-green)](https://earthengine.google.com)
 [![Licencia](https://img.shields.io/badge/Licencia-MIT-yellow)](LICENSE)
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19352553.svg)](https://doi.org/10.5281/zenodo.19352553)
 ---
 
 ## Descripción
