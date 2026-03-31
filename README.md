@@ -178,4 +178,3 @@ Si utilizás KiwiTrackingIA en tu investigación, por favor citá la tesis asoci
 > Sánchez Leguizamón, D. N. (2025). *Análisis de variabilidad productiva para kiwi integrando teledetección, topografía y machine learning* [Tesis de licenciatura]. Universidad Nacional Arturo Jauretche. https://github.com/sdarionicolas-boop/KiwiTrackingIA
 
 **Versión citada**: v1.0-tesis  
-**DOI**: [10.5281/zenodo.xxxxx](https://doi.org/10.5281/zenodo.xxxxx) (pendiente)
