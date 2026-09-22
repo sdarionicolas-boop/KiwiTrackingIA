@@ -12,6 +12,7 @@ Esta carpeta contiene todos los archivos de datos necesarios para ejecutar los n
 | `Dataset_Kiwi_DL_Final_2019_2025.csv` | Procesamiento previo | NDVI mensual del lote para Isolation Forest |
 | `DEM_Miramar_UTM.tif` | Copernicus DEM (GEE) | Modelo digital de elevación, reproyectado a UTM |
 | `Slope_Recalc_UTM.tif` | Derivado del DEM | Raster de pendiente (%) en UTM |
+| `malla_zona.geojson` *(opcional)* | Manual (Google Earth) | Polígono de la zona bajo malla de protección, si el lote tiene |
 
 ## Estructura de columnas clave
 
@@ -36,6 +37,9 @@ date, Tmax, Tmin, Precip
 ```
 - `date`: formato `YYYY-MM-DD`
 - Temperaturas en °C, precipitación en mm
+
+### `malla_zona.geojson` *(opcional)*
+Un único polígono (FeatureCollection con una Feature) delimitando el sector del lote cubierto por malla monofilamento antigranizo/antiheladas. Se dibuja en Google Earth y se exporta como GeoJSON. Si el lote no tiene malla, simplemente no se incluye este archivo — el notebook 03 lo detecta automáticamente y omite la corrección (ver `docs/metodologia.md`, sección 5.1).
 
 ## Nota sobre archivos .tif
 

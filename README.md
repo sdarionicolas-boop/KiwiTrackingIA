@@ -14,7 +14,9 @@ KiwiTrackingIA es un sistema de análisis de variabilidad productiva para el cul
 El proyecto construye el **KVPI (Kiwi Vegetation Productivity Index)**, un índice compuesto a nivel planta derivado de Sentinel-2, y lo integra con:
 
 - Topografía real (DEM Copernicus)
+- Corrección por sesgo de malla de protección (opcional, según el lote)
 - GDD (Grados Día de Crecimiento, Tbase=10°C)
+- Horas de Frío (modelo coseno, requerimiento cultivar Hayward)
 - Alertas climáticas mediante Isolation Forest
 - Recomendaciones de manejo por planta (percentil p75 de estabilidad)
 - Dashboard interactivo (Folium)
@@ -40,15 +42,19 @@ KiwiTrackingIA/
 │   ├── datos_climaticos_diarios_2019_2026.csv
 │   ├── Dataset_Kiwi_DL_Final_2019_2025.csv
 │   ├── DEM_Miramar_UTM.tif               # (Git LFS si > 100 MB)
-│   └── Slope_Recalc_UTM.tif             # (Git LFS si > 100 MB)
+│   ├── Slope_Recalc_UTM.tif             # (Git LFS si > 100 MB)
+│   └── malla_zona.geojson                # Opcional: zona bajo malla de protección
 │
 ├── resultados/                           # Outputs generados por NB03
 │   ├── IVP_Kiwi_Producto_Final.html      # Mapa interactivo unificado
-│   ├── datos_plantas_completos.csv
+│   ├── datos_plantas_completos.csv       # Incluye KVPI original y corregido
 │   ├── gdd_por_campana.csv
+│   ├── horas_frio_por_campana.csv
 │   ├── meses_anomalos.csv
 │   ├── gdd_por_campana.png
+│   ├── horas_frio_por_campana.png
 │   ├── kvpi_vs_topografia.png
+│   ├── correccion_mallas.png             # Solo si el lote tiene malla
 │   ├── anomalias_climaticas.png
 │   └── metadata_ejecucion.txt
 │
@@ -72,9 +78,11 @@ KiwiTrackingIA/
 
 ## Metodología
 
-**KVPI** se calcula como la media de cuatro índices espectrales Sentinel-2 (NDVI, NDRE, NDMI, EVI), todos normalizados en [-1, 1], sobre imágenes con cobertura de nubes < 20% por campaña. El índice representativo de cada campaña es la mediana temporal del conjunto. Los indicadores por planta (KVPI_mean, CV, estabilidad = mean/std) se calculan sobre la serie de 6 campañas (2019–2025).
+**KVPI** se calcula como la media de cuatro índices espectrales Sentinel-2 (NDVI, NDRE, NDMI, EVI), todos normalizados en [-1, 1], sobre imágenes con cobertura de nubes < 20% por campaña. El índice representativo de cada campaña es la mediana temporal del conjunto. Los indicadores por planta (KVPI_mean, CV, estabilidad) se calculan sobre la serie de 6 campañas (2019–2025).
 
-La clasificación de ambientes usa terciles de KVPI_mean (p33/p66). Las recomendaciones de manejo combinan potencial estructural con estabilidad interanual usando el percentil 75 como umbral conservador (ver `docs/justificacion_umbrales.md`).
+Si el lote tiene sectores bajo malla de protección, el KVPI se **corrige por el sesgo óptico que introduce el sombreo de la malla** (ver `docs/metodologia.md`, sección 5.1) antes de continuar el análisis — `KVPI_corregido` es la variable usada de ahí en más.
+
+La clasificación de ambientes usa terciles de KVPI_corregido (p33/p66). Las recomendaciones de manejo combinan potencial estructural con estabilidad interanual usando el percentil 75 como umbral conservador, y se ajustan por déficit de horas de frío en la última campaña (ver `docs/justificacion_umbrales.md`).
 
 ---
 
@@ -129,10 +137,12 @@ Subir la carpeta `datos/` a Google Drive en `MyDrive/KiwiTrackingIA/` y ejecutar
 
 ## Hallazgos principales
 
-- El KVPI mostró estabilidad espacial alta entre campañas: las zonas de mayor potencial se mantuvieron estructuralmente consistentes durante los 6 años analizados.
-- La topografía (elevación y pendiente) explica parcialmente la variabilidad espacial del KVPI: las zonas de mayor elevación relativa tendieron a presentar mayor potencial.
+- **Las mallas de protección introducen un sesgo espectral sistemático:** en el lote de referencia, las plantas bajo malla monofilamento mostraron un KVPI 18.5% menor que las plantas a cielo abierto (p < 0.001), no explicado por diferencias de elevación ni pendiente. El sesgo es consistente con el sombreo del 15-17% que producen estas mallas y se corrige con un factor multiplicativo (FC=1.227) antes de cualquier análisis posterior — un paso necesario en cualquier lote con infraestructura de protección parcial.
+- El KVPI corregido mostró estabilidad espacial alta entre campañas: las zonas de mayor potencial se mantuvieron estructuralmente consistentes durante los 6 años analizados.
+- La topografía (elevación y pendiente) no resultó determinante de la variabilidad espacial del KVPI en el lote de referencia, a diferencia de lo reportado en otros estudios de variabilidad intralote.
 - El análisis de GDD evidenció variabilidad interanual en el acúmulo térmico, con impacto detectable en el KVPI medio por campaña.
-- Isolation Forest identificó meses con comportamiento anómalo en la combinación NDVI–GDD–precipitación, coincidentes con eventos climáticos extremos del período.
+- Las horas de frío (mayo-agosto) resultaron deficientes respecto del requerimiento del cultivar Hayward en 2 de 8 temporadas analizadas, coincidiendo con los meses climáticamente anómalos detectados por Isolation Forest — evidencia de que la vulnerabilidad térmica del sitio no es un evento aislado.
+- Isolation Forest identificó meses con comportamiento anómalo en la combinación NDVI–GDD–precipitación–horas de frío, coincidentes con eventos climáticos extremos del período.
 
 ---
 

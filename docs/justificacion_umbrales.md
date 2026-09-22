@@ -2,7 +2,7 @@
 
 ## Umbral de estabilidad: percentil 75 (p75)
 
-El umbral de estabilidad productiva utilizado en las recomendaciones de manejo es el **percentil 75** del índice `KVPI_estabilidad` (= KVPI_mean / KVPI_std) calculado sobre el conjunto de plantas del lote.
+El umbral de estabilidad productiva utilizado en las recomendaciones de manejo es el **percentil 75** del índice `estabilidad` (= KVPI_corregido / KVPI_std) calculado sobre el conjunto de plantas del lote. Se usa el KVPI ya corregido por sesgo de malla (si corresponde; ver `metodologia.md`, sección 5.1), de modo que la estabilidad no quede distorsionada por el sombreo de la infraestructura de protección.
 
 ### Fundamentación
 
@@ -19,7 +19,10 @@ Al restringir las categorías "Mantener" e "Intervenir" a plantas con alta estab
 El uso de percentiles altos (p75–p80) como umbrales de corte en índices de estabilidad es una práctica documentada en estudios de variabilidad intraespecífica en frutales de hoja caduca (ver literatura de estabilidad genotipo×ambiente).
 
 **5. Validez empírica del resultado**  
-La distribución resultante (~12% Mantener, ~2.5% Intervenir, ~85% Observar) es coherente con la estructura esperada en un lote productivo típico de kiwi, donde la mayoría de las plantas se encuentra en condición intermedia y sólo una fracción pequeña presenta comportamiento productivo extremo y estable.
+En el lote de referencia (El Abrojito, sobre KVPI corregido), la distribución resultante fue ~88% Observar y ~12% Intervenir — sin plantas en "Mantener" esa campaña, por el ajuste adicional según el estado de horas de frío (ver más abajo). Es coherente con la estructura esperada en un lote productivo típico de kiwi, donde la mayoría de las plantas se encuentra en condición intermedia y sólo una fracción pequeña presenta comportamiento productivo extremo y estable.
+
+**6. Ajuste por déficit de frío**  
+Las recomendaciones de manejo se calculan sobre el potencial y la estabilidad estructural del KVPI, pero un potencial alto no se expresa si el cultivo no acumuló las horas de frío necesarias esa temporada. Por eso, si la última campaña disponible se clasifica como "Deficiente" en horas de frío (< 750 h; ver `metodologia.md`, sección 6.1), las plantas con recomendación "Mantener" se reclasifican a "Observar": el ajuste evita recomendar continuidad de manejo sobre una base climática que no se cumplió ese año.
 
 ## Clasificación de ambientes: terciles de KVPI (p33/p66)
 
