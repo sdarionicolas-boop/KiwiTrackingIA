@@ -1,20 +1,21 @@
 cff-version: 1.2.0
 message: "Si utilizás este software en tu investigación, por favor citá la tesis asociada."
 
+type: software
 title: "KiwiTrackingIA: Sistema de análisis de variabilidad productiva para kiwi"
-version: 1.0.1
-date-released: 2025-03-31
+version: 1.1.0
+date-released: 2026-10-03
 
 authors:
   - family-names: "Sánchez Leguizamón"
     given-names: "Darío Nicolás"
     affiliation: "Universidad Nacional Arturo Jauretche"
     email: "sdarionicolas@gmail.com"
-    orcid: "https://orcid.org/0009-0000-0000-0000"
-    doi: "10.5281/zenodo.19352553"
+    orcid: "https://orcid.org/0009-0002-4228-2950"
 
 repository-code: "https://github.com/sdarionicolas-boop/KiwiTrackingIA"
-license: "MIT"
+license: MIT
+doi: "10.5281/zenodo.19352552"
 
 keywords:
   - agriculture
