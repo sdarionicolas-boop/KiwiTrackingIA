@@ -42,3 +42,8 @@ desktop.ini
 # Resultados grandes (opcionales, descomentar si no se quieren versionar)
 # resultados/*.html
 # mapas_interactivos/*.html
+
+# Paquetes comprimidos
+*.rar
+*.zip
+*.kml
