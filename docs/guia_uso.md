@@ -31,6 +31,22 @@ La capa de calor (activable desde el control de capas) muestra la densidad espac
 
 ---
 
+## Visualizar los resultados en RustGIS (opcional)
+
+Además del mapa HTML, los resultados pueden abrirse en un SIG de escritorio o web sin instalar Python ni autenticar Google Earth Engine. [RustGIS](https://github.com/opengeos/RustGIS) (Apache-2.0) es una opción: se usa en el navegador desde [web.rustgis.app](https://web.rustgis.app) o como app para Windows, macOS y Linux.
+
+> **Nota:** esta alternativa es complementaria y no forma parte del pipeline. No fue validada de forma sistemática; ante cualquier diferencia, el mapa `IVP_Kiwi_Producto_Final.html` es la referencia.
+
+Pasos sugeridos:
+
+1. Abrir RustGIS y cargar `resultados/datos_plantas_completos.csv` como capa de puntos, indicando las columnas de longitud (x) y latitud (y) y el sistema de coordenadas de origen.
+2. Cargar `datos/malla_zona.geojson` para ver la zona bajo malla de protección.
+3. Cargar `datos/DEM_Miramar_UTM.tif` y `datos/Slope_Recalc_UTM.tif` como rasters (por ejemplo con relieve sombreado).
+4. Aplicar simbología graduada por `KVPI_corregido` (o por ambiente/recomendación) sobre la capa de plantas.
+5. Para informes, usar *Layouts* (leyenda, escala, norte) y exportar a PDF o PNG.
+
+---
+
 ## Para desarrolladores: flujo de ejecución
 
 Ver `metodologia.md` para el detalle técnico de cada etapa.
